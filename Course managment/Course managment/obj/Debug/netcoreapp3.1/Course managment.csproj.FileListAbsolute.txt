@@ -1,0 +1,14 @@
+C:\Users\user\Desktop\New folder\C#\Project 1\Course managment\Course managment\bin\Debug\netcoreapp3.1\Course managment.exe
+C:\Users\user\Desktop\New folder\C#\Project 1\Course managment\Course managment\bin\Debug\netcoreapp3.1\Course managment.deps.json
+C:\Users\user\Desktop\New folder\C#\Project 1\Course managment\Course managment\bin\Debug\netcoreapp3.1\Course managment.runtimeconfig.json
+C:\Users\user\Desktop\New folder\C#\Project 1\Course managment\Course managment\bin\Debug\netcoreapp3.1\Course managment.runtimeconfig.dev.json
+C:\Users\user\Desktop\New folder\C#\Project 1\Course managment\Course managment\bin\Debug\netcoreapp3.1\Course managment.dll
+C:\Users\user\Desktop\New folder\C#\Project 1\Course managment\Course managment\bin\Debug\netcoreapp3.1\Course managment.pdb
+C:\Users\user\Desktop\New folder\C#\Project 1\Course managment\Course managment\obj\Debug\netcoreapp3.1\Course managment.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\New folder\C#\Project 1\Course managment\Course managment\obj\Debug\netcoreapp3.1\Course managment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\New folder\C#\Project 1\Course managment\Course managment\obj\Debug\netcoreapp3.1\Course managment.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\New folder\C#\Project 1\Course managment\Course managment\obj\Debug\netcoreapp3.1\Course managment.AssemblyInfo.cs
+C:\Users\user\Desktop\New folder\C#\Project 1\Course managment\Course managment\obj\Debug\netcoreapp3.1\Course managment.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\New folder\C#\Project 1\Course managment\Course managment\obj\Debug\netcoreapp3.1\Course managment.dll
+C:\Users\user\Desktop\New folder\C#\Project 1\Course managment\Course managment\obj\Debug\netcoreapp3.1\Course managment.pdb
+C:\Users\user\Desktop\New folder\C#\Project 1\Course managment\Course managment\obj\Debug\netcoreapp3.1\Course managment.genruntimeconfig.cache
