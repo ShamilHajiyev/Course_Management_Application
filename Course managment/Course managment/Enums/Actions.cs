@@ -6,7 +6,8 @@ namespace Course_managment.Enums
 {
     enum Actions
     {
-        Create_Group = 1,
+        Exit,
+        Create_Group,
         Show_All_Groups,
         Edit_Group,
         Show_Students_In_Group,

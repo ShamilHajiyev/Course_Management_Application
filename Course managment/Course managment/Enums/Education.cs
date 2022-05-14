@@ -4,11 +4,9 @@ using System.Text;
 
 namespace Course_managment.Enums
 {
-    enum Categories
+    enum Education
     {
-        Programming = 1,
-        Design,
-        System_Administration,
-        Digital_Marketing
+        Offline = 1,
+        Online
     }
 }

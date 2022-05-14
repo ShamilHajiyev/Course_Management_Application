@@ -13,8 +13,9 @@ namespace Course_managment.Services
 
         public List<Group> Groups => _groups;
 
-        Group ICourseServices.CreateGroup(Categories category, bool isOnline)
+        public Group CreateGroup(Categories category, bool isOnline)
         {
+            _groups = new List<Group>();
             Group group = new Group(category, isOnline);
             _groups.Add(group);
             return group;
@@ -41,7 +42,7 @@ namespace Course_managment.Services
             }
         }
 
-        public void Show_All_Students()
+        public void ShowAllStudents()
         {
             foreach (Group group in _groups)
             {
