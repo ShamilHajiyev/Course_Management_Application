@@ -79,25 +79,10 @@ namespace Course_managment.Services
 
         public static void EditGroupMenu()
         {
-            ushort oldNo;
             Console.WriteLine("Enter group no:");
-            bool oldNoResult = ushort.TryParse(Console.ReadLine(), out oldNo);
-            ushort newNo;
+            string oldNo = Console.ReadLine();
             Console.WriteLine("Enter new group no:");
-            bool newNoResult = ushort.TryParse(Console.ReadLine(), out newNo);
-
-            if (!(oldNoResult && newNoResult))
-            {
-                ErrorMessage();
-            }
-            else if (oldNo < 100 || oldNo > 999 || newNo < 100 || newNo > 999)
-            {
-                Console.WriteLine("Group no must be chosen between 100 and 999");
-            }
-            else
-            {
-
-            }
+            string newNo = Console.ReadLine();
             Course.EditGroup(oldNo, newNo);
         }
 
@@ -122,7 +107,7 @@ namespace Course_managment.Services
             Console.WriteLine("Enter group no:");
             string no = Console.ReadLine();
             bool type;
-            Console.WriteLine("Select type of student(Guaranteed/Unsecured)");
+            Console.WriteLine("Select type of student (Guaranteed/Unsecured)");
             string educationType = Console.ReadLine();
             if (educationType.ToLower().Trim() == "guaranteed")
             {

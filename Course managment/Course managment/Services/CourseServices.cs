@@ -42,21 +42,9 @@ namespace Course_managment.Services
 
         public void EditGroup(string oldNo, string newNo)
         {
-
-
-            
-            else if (oldNo < 100 || oldNo > 999)
-            {
-                Console.WriteLine("Group no must be chosen between 100 and 999");
-            }
-            else
-            {
-
-            }
-
             if (FindGroup(oldNo) == null)
             {
-                "Group doesn't exist");
+                Console.WriteLine("Group doesn't exist");
             }
             else if(FindGroup(newNo) != null)
             {
@@ -64,7 +52,8 @@ namespace Course_managment.Services
             }
             else
             {
-
+                FindGroup(oldNo).No = newNo;
+                Console.WriteLine($"Group {newNo} successfully edited");
             }
         }
 
