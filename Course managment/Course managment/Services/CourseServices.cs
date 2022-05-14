@@ -13,25 +13,59 @@ namespace Course_managment.Services
 
         public List<Group> Groups => _groups;
 
-        public Group CreateGroup(Categories category, bool isOnline)
+        public CourseServices()
         {
             _groups = new List<Group>();
+        }
+
+        public void CreateGroup(Categories category, bool isOnline)
+        {
             Group group = new Group(category, isOnline);
-            _groups.Add(group);
-            return group;
+            if (FindGroup(group.No) != null)
+            {
+                Console.WriteLine("Group already exists");
+            }
+            else
+            {
+                _groups.Add(group);
+                Console.WriteLine("Group successfully created");
+            }
         }
 
         public void ShowAllGroups()
         {
-            foreach (var item in _groups)
+            foreach (Group group in _groups)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine(group.ToString());
             }
         }
 
         public void EditGroup(string oldNo, string newNo)
         {
-            FindGroup(oldNo).No = newNo;
+
+
+            
+            else if (oldNo < 100 || oldNo > 999)
+            {
+                Console.WriteLine("Group no must be chosen between 100 and 999");
+            }
+            else
+            {
+
+            }
+
+            if (FindGroup(oldNo) == null)
+            {
+                "Group doesn't exist");
+            }
+            else if(FindGroup(newNo) != null)
+            {
+                Console.WriteLine("Group already exists");
+            }
+            else
+            {
+
+            }
         }
 
         public void ShowStudentsInGroup(string no)

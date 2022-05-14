@@ -1,4 +1,5 @@
 ﻿using Course_managment.Enums;
+using Course_managment.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,17 +17,41 @@ namespace Course_managment.Models
 
         static Group()
         {
-            Number = 10;
+            Number = 100;
         }
 
         public Group(Categories category, bool isOnline)
         {
             Category = category;
-            No = Number + Enum.GetName(typeof(Categories),category);
+            switch (category)
+            {
+                case Categories.Programming:
+                    No = "P" + Number;
+                    break;
+                case Categories.Design:
+                    No = "D" + Number;
+                    break;
+                case Categories.System_Administration:
+                    No = "SA" + Number;
+                    break;
+                case Categories.Digital_Marketing:
+                    No = "DM" + Number;
+                    break;
+                default:
+                    MenuServices.ErrorMessage();
+                    break;
+            }
+            Number++;
 
             IsOnline = isOnline;
-            Limit = 15;
-
+            if (IsOnline)
+            {
+                Limit = 15;
+            }
+            else
+            {
+                Limit = 10;
+            }
             Students = new List<Student>();
         }
 

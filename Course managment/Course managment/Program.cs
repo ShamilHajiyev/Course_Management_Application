@@ -40,7 +40,7 @@ namespace Course_managment
                         MenuServices.ShowStudentsInGroupMenu();
                         break;
                     case (byte)Actions.Show_All_Students:
-                        MenuServices.Show_All_StudentsMenu();
+                        MenuServices.ShowAllStudentsMenu();
                         break;
                     case (byte)Actions.Create_Student:
                         MenuServices.CreateStudentMenu();

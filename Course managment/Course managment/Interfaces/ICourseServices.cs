@@ -10,7 +10,7 @@ namespace Course_managment.Interfaces
     {
         List<Group> Groups { get; }
 
-        Group CreateGroup(Categories category, bool isOnline);
+        string CreateGroup(Categories category, bool isOnline);
         void ShowAllGroups();
         void EditGroup(string oldNo, string newNo);
         void ShowStudentsInGroup(string no);

@@ -13,7 +13,7 @@ namespace Course_managment.Models
 
         static Student()
         {
-            Id = 100;
+            Id = 1000;
         }
 
         public Student(string fullName, string groupNo, bool type)

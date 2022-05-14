@@ -79,10 +79,25 @@ namespace Course_managment.Services
 
         public static void EditGroupMenu()
         {
+            ushort oldNo;
             Console.WriteLine("Enter group no:");
-            string oldNo = Console.ReadLine();
+            bool oldNoResult = ushort.TryParse(Console.ReadLine(), out oldNo);
+            ushort newNo;
             Console.WriteLine("Enter new group no:");
-            string newNo = Console.ReadLine();
+            bool newNoResult = ushort.TryParse(Console.ReadLine(), out newNo);
+
+            if (!(oldNoResult && newNoResult))
+            {
+                ErrorMessage();
+            }
+            else if (oldNo < 100 || oldNo > 999 || newNo < 100 || newNo > 999)
+            {
+                Console.WriteLine("Group no must be chosen between 100 and 999");
+            }
+            else
+            {
+
+            }
             Course.EditGroup(oldNo, newNo);
         }
 
@@ -103,27 +118,26 @@ namespace Course_managment.Services
             string name = Console.ReadLine();
             Console.WriteLine("Enter surname:");
             string surname = Console.ReadLine();
-
-            if (name.ToLower().Trim() == "offline")
+            string fullName = name + surname;
+            Console.WriteLine("Enter group no:");
+            string no = Console.ReadLine();
+            bool type;
+            Console.WriteLine("Select type of student(Guaranteed/Unsecured)");
+            string educationType = Console.ReadLine();
+            if (educationType.ToLower().Trim() == "guaranteed")
             {
-                isOnline = false;
-                Course.CreateGroup((Categories)category, isOnline);
+                type = true;
+                Course.CreateStudent(fullName, no, type);
             }
-            else if (education.ToLower().Trim() == "online")
+            else if (educationType.ToLower().Trim() == "unsecured")
             {
-                isOnline = true;
-                Course.CreateGroup((Categories)category, isOnline);
+                type = false;
+                Course.CreateStudent(fullName, no, type);
             }
             else
             {
                 ErrorMessage();
             }
-
-
-            string fullName = name + surname;
-            string groupNo;
-            bool type;
-            Console.WriteLine(Actions.Create_Student);
         }
 
         public static void DeleteStudentMenu()
