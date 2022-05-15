@@ -74,7 +74,7 @@ namespace Course_managment.Services
         {
             Console.WriteLine("Enter group no:");
             string oldNo = Console.ReadLine();
-            Console.WriteLine("Enter new group no:");
+            Console.WriteLine("\nEnter new group no:");
             string newNo = Console.ReadLine();
             Console.Clear();
 
@@ -182,7 +182,11 @@ namespace Course_managment.Services
                 Console.WriteLine("Bye:)");
                 return true;
             }
-            return false;
+            else
+            {
+                Console.WriteLine("Welcome back:)");
+                return false;
+            }
         }
 
         public static void ErrorMessage()

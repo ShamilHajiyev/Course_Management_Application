@@ -90,6 +90,12 @@ namespace Course_managment.Services
         {
             Student student = new Student(fullName, groupNo, type);
 
+            if (FindGroup(groupNo) == null)
+            {
+                MenuServices.ErrorMessage();
+                return null;
+            }
+
             if (FindGroup(groupNo).Students.Count < FindGroup(groupNo).Limit)
             {
                 FindGroup(groupNo).Students.Add(student);
