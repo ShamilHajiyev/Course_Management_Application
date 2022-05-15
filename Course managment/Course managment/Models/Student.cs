@@ -9,11 +9,12 @@ namespace Course_managment.Models
         public string FullName;
         public string GroupNo;
         public bool Type;
-        public static ushort Id;
+        public ushort Id;
+        public static ushort IdNumber;
 
         static Student()
         {
-            Id = 1000;
+            IdNumber = 1000;
         }
 
         public Student(string fullName, string groupNo, bool type)
@@ -21,12 +22,13 @@ namespace Course_managment.Models
             FullName = fullName;
             Type = type;
             GroupNo = groupNo;
-            Id++;
+            Id = IdNumber;
+            IdNumber++;
         }
 
         public override string ToString()
         {
-            return $"{FullName} - {Id}";
+            return $"{FullName} - {Id} - {GroupNo} - {((Type) ? "Guaranteed" : "Unsecured")}";
         }
     }
 }

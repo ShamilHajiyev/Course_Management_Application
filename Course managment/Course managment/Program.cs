@@ -9,22 +9,26 @@ namespace Course_managment
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the program\n");
+            Console.WriteLine("Welcome to the program");
             bool exit = false;
             bool result;
             byte selection;
+
             do
             {
                 MenuServices.ShowMenu();
             Input:
+                Console.WriteLine();
                 result = byte.TryParse(Console.ReadLine(), out selection);
                 Console.Clear();
+
                 if (!result)
                 {
                     MenuServices.ErrorMessage();
                     MenuServices.ShowMenu();
                     goto Input;
                 }
+
                 switch (selection)
                 {
                     case (byte)Actions.Create_Group:

@@ -38,6 +38,7 @@ namespace Course_managment.Models
                     No = "DM" + Number;
                     break;
                 default:
+                    No = null;
                     MenuServices.ErrorMessage();
                     break;
             }
@@ -57,7 +58,7 @@ namespace Course_managment.Models
 
         public override string ToString()
         {
-            return $"{No}";
+            return $"{No} - {Category} - {((IsOnline) ? "Online" : "Offline")} - Limit: {Limit}";
         }
     }
 }

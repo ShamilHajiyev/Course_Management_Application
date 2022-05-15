@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Course_managment.Enums
 {
-    enum Actions
+    enum Actions : byte
     {
         Exit,
         Create_Group,

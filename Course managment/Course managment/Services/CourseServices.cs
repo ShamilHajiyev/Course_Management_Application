@@ -21,14 +21,19 @@ namespace Course_managment.Services
         public void CreateGroup(Categories category, bool isOnline)
         {
             Group group = new Group(category, isOnline);
+
             if (FindGroup(group.No) != null)
             {
                 Console.WriteLine("Group already exists");
             }
-            else
+            else if(group.No != null)
             {
                 _groups.Add(group);
                 Console.WriteLine("Group successfully created");
+            }
+            else
+            {
+                Console.WriteLine("Group can not be created");
             }
         }
 
@@ -52,6 +57,7 @@ namespace Course_managment.Services
             }
             else
             {
+                newNo = newNo.ToUpper().Trim();
                 FindGroup(oldNo).No = newNo;
                 Console.WriteLine($"Group {newNo} successfully edited");
             }
@@ -59,9 +65,16 @@ namespace Course_managment.Services
 
         public void ShowStudentsInGroup(string no)
         {
-            foreach (Student student in FindGroup(no).Students)
+            if (FindGroup(no) != null)
             {
-                Console.WriteLine(student.ToString());
+                foreach (Student student in FindGroup(no).Students)
+                {
+                    Console.WriteLine(student.ToString());
+                }
+            }
+            else
+            {
+                MenuServices.ErrorMessage();
             }
         }
 
@@ -76,24 +89,34 @@ namespace Course_managment.Services
         public Student CreateStudent(string fullName, string groupNo, bool type)
         {
             Student student = new Student(fullName, groupNo, type);
+
             if (FindGroup(groupNo).Students.Count < FindGroup(groupNo).Limit)
             {
                 FindGroup(groupNo).Students.Add(student);
+                Console.WriteLine($"{student.FullName} successfully created");
                 return student;
             }
+            Console.WriteLine("Student can not be created");
             return null;
         }
 
         public void DeleteStudent(ushort id)
         {
-
+            if (FindStudent(id) != null)
+            {
+                Console.WriteLine(FindStudent(id).ToString());
+            }
+            else
+            {
+                MenuServices.ErrorMessage();
+            }
         }
 
         public Group FindGroup(string no)
         {
             foreach (Group group in _groups)
             {
-                if (no == group.No)
+                if (no.ToUpper().Trim() == group.No.ToUpper().Trim())
                 {
                     return group;
                 }
