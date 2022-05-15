@@ -154,14 +154,17 @@ namespace Course_managment.Services
 
         public static void DeleteStudentMenu()
         {
+            Console.WriteLine("Enter group no:");
+            string no = Console.ReadLine();
+
             ushort id;
-            Console.WriteLine("Enter student ID:");
+            Console.WriteLine("\nEnter student ID:");
             bool remainedResult = ushort.TryParse(Console.ReadLine(), out id);
             Console.Clear();
 
             if (remainedResult)
             {
-                Course.DeleteStudent(id);
+                Course.DeleteStudent(no, id);
             }
             else
             {

@@ -16,6 +16,6 @@ namespace Course_managment.Interfaces
         void ShowStudentsInGroup(string no);
         void ShowAllStudents();
         Student CreateStudent(string fullName, string groupNo, bool type);
-        void DeleteStudent(ushort id);
+        void DeleteStudent(string no, ushort id);
     }
 }

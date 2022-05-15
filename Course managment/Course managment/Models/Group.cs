@@ -32,10 +32,10 @@ namespace Course_managment.Models
                     No = "D" + Number;
                     break;
                 case Categories.System_Administration:
-                    No = "SA" + Number;
+                    No = "S" + Number;
                     break;
                 case Categories.Digital_Marketing:
-                    No = "DM" + Number;
+                    No = "M" + Number;
                     break;
                 default:
                     No = null;
@@ -58,7 +58,7 @@ namespace Course_managment.Models
 
         public override string ToString()
         {
-            return $"{No} - {Category} - {((IsOnline) ? "Online" : "Offline")} - Limit: {Limit}";
+            return $"{No} - {Category} - {((IsOnline) ? "Online" : "Offline")} - Students: {Students.Count}/{Limit}";
         }
     }
 }

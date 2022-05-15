@@ -93,18 +93,19 @@ namespace Course_managment.Services
             if (FindGroup(groupNo).Students.Count < FindGroup(groupNo).Limit)
             {
                 FindGroup(groupNo).Students.Add(student);
-                Console.WriteLine($"{student.FullName} successfully created");
+                Console.WriteLine($"{student.FullName}({student.Id}) successfully created");
                 return student;
             }
             Console.WriteLine("Student can not be created");
             return null;
         }
 
-        public void DeleteStudent(ushort id)
+        public void DeleteStudent(string no, ushort id)
         {
-            if (FindStudent(id) != null)
+            if (FindStudent(no, id) != null)
             {
-                Console.WriteLine(FindStudent(id).ToString());
+                Console.WriteLine($"{FindStudent(no, id)} successfully deleted");
+                FindGroup(no).Students.Remove(FindStudent(no, id));
             }
             else
             {
@@ -124,16 +125,17 @@ namespace Course_managment.Services
             return null;
         }
 
-        public Student FindStudent(ushort id)
+        public Student FindStudent(string no, ushort id)
         {
-            foreach (Group group in _groups)
+            if (FindGroup(no) == null)
             {
-                foreach (Student student in group.Students)
+                return null;
+            }
+            foreach (Student student in FindGroup(no).Students)
+            {
+                if (id == student.Id)
                 {
-                    if (id == Student.Id)
-                    {
-                        return student;
-                    }
+                    return student;
                 }
             }
             return null;
