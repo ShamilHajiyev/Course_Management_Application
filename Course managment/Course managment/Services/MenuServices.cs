@@ -72,6 +72,8 @@ namespace Course_managment.Services
 
         public static void EditGroupMenu()
         {
+            Course.ShowAllGroups();
+            Console.WriteLine();
             Console.WriteLine("Enter group no:");
             string oldNo = Console.ReadLine();
             Console.WriteLine("\nEnter new group no:");
@@ -90,6 +92,8 @@ namespace Course_managment.Services
 
         public static void ShowStudentsInGroupMenu()
         {
+            Course.ShowAllGroups();
+            Console.WriteLine();
             Console.WriteLine("Enter group no:");
             string no = Console.ReadLine();
             Console.Clear();
@@ -102,6 +106,9 @@ namespace Course_managment.Services
         }
         public static void CreateStudentMenu()
         {
+            Course.ShowAllGroups();
+            Console.WriteLine();
+
             Console.WriteLine("Enter name:");
             string name = Console.ReadLine();
 
@@ -154,6 +161,9 @@ namespace Course_managment.Services
 
         public static void DeleteStudentMenu()
         {
+            Course.ShowAllStudents();
+            Console.WriteLine();
+            
             Console.WriteLine("Enter group no:");
             string no = Console.ReadLine();
 

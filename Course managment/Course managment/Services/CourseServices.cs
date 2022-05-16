@@ -67,6 +67,10 @@ namespace Course_managment.Services
         {
             if (FindGroup(no) != null)
             {
+                if (FindGroup(no).Students.Count == 0)
+                {
+                    Console.WriteLine("There is no student here yet");
+                }
                 foreach (Student student in FindGroup(no).Students)
                 {
                     Console.WriteLine(student.ToString());
@@ -99,7 +103,7 @@ namespace Course_managment.Services
             if (FindGroup(groupNo).Students.Count < FindGroup(groupNo).Limit)
             {
                 FindGroup(groupNo).Students.Add(student);
-                Console.WriteLine($"{student.FullName}({student.Id}) successfully created");
+                Console.WriteLine($"{student.FullName} - {student.Id} successfully created");
                 return student;
             }
             Console.WriteLine("Student can not be created");
@@ -110,7 +114,7 @@ namespace Course_managment.Services
         {
             if (FindStudent(no, id) != null)
             {
-                Console.WriteLine($"{FindStudent(no, id)} successfully deleted");
+                Console.WriteLine($"{FindStudent(no, id)}  successfully deleted");
                 FindGroup(no).Students.Remove(FindStudent(no, id));
             }
             else
