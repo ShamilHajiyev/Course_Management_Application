@@ -1,8 +1,6 @@
 ﻿using Course_managment.Enums;
 using Course_managment.Services;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Course_managment.Models
 {
@@ -27,25 +25,23 @@ namespace Course_managment.Models
             {
                 case Categories.Programming:
                     No = "P" + Number;
-                    Number++;
                     break;
                 case Categories.Design:
                     No = "D" + Number;
-                    Number++;
                     break;
                 case Categories.System_Administration:
                     No = "S" + Number;
-                    Number++;
                     break;
                 case Categories.Digital_Marketing:
                     No = "M" + Number;
-                    Number++;
                     break;
                 default:
                     No = null;
+                    Number--;
                     MenuServices.ErrorMessage();
                     break;
             }
+            Number++;
 
             IsOnline = isOnline;
             if (IsOnline)

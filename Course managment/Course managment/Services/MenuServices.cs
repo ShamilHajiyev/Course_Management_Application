@@ -1,9 +1,5 @@
 ﻿using Course_managment.Enums;
-using Course_managment.Interfaces;
-using Course_managment.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Course_managment.Services
 {
@@ -18,8 +14,7 @@ namespace Course_managment.Services
 
         public static void ShowMenu()
         {
-            Console.WriteLine();
-            Console.WriteLine("1 - Create group");
+            Console.WriteLine("\n1 - Create group");
             Console.WriteLine("2 - Show all groups");
             Console.WriteLine("3 - Edit group");
             Console.WriteLine("4 - Show students in group");
@@ -44,16 +39,16 @@ namespace Course_managment.Services
             else
             {
                 bool isOnline;
-                Console.WriteLine("Select form of education(Offline/Online)\n");
+                Console.WriteLine("Is education offline? (y / n)\n");
                 string education = Console.ReadLine();
                 Console.Clear();
 
-                if (education.ToLower().Trim() == "offline")
+                if (education.ToLower().Trim() == "y")
                 {
                     isOnline = false;
                     Course.CreateGroup((Categories)category, isOnline);
                 }
-                else if (education.ToLower().Trim() == "online")
+                else if (education.ToLower().Trim() == "n")
                 {
                     isOnline = true;
                     Course.CreateGroup((Categories)category, isOnline);
@@ -73,8 +68,7 @@ namespace Course_managment.Services
         public static void EditGroupMenu()
         {
             Course.ShowAllGroups();
-            Console.WriteLine();
-            Console.WriteLine("Enter group no:");
+            Console.WriteLine("\nEnter group no:");
             string oldNo = Console.ReadLine();
             Console.WriteLine("\nEnter new group no:");
             string newNo = Console.ReadLine();
@@ -93,8 +87,7 @@ namespace Course_managment.Services
         public static void ShowStudentsInGroupMenu()
         {
             Course.ShowAllGroups();
-            Console.WriteLine();
-            Console.WriteLine("Enter group no:");
+            Console.WriteLine("\nEnter group no:");
             string no = Console.ReadLine();
             Console.Clear();
             Course.ShowStudentsInGroup(no);
@@ -107,19 +100,16 @@ namespace Course_managment.Services
         public static void CreateStudentMenu()
         {
             Course.ShowAllGroups();
-            Console.WriteLine();
 
-            Console.WriteLine("Enter name:");
+            Console.WriteLine("\nEnter name:");
             string name = Console.ReadLine();
 
             Console.WriteLine("\nEnter surname:");
             string surname = Console.ReadLine();
 
-            bool nameExist = !(string.IsNullOrEmpty(name) || string.IsNullOrWhiteSpace(name));
-            bool surnameExist = !(string.IsNullOrEmpty(surname) || string.IsNullOrWhiteSpace(surname));
             string fullName;
 
-            if (nameExist && surnameExist)
+            if (NameCondition(name) && NameCondition(surname))
             {
                 fullName = Capitalize(name) + " " + Capitalize(surname);
             }
@@ -132,18 +122,18 @@ namespace Course_managment.Services
             string no = Console.ReadLine();
 
             bool type;
-            Console.WriteLine("\nSelect type of student (Guaranteed/Unsecured)");
+            Console.WriteLine("\nSelect type of student (G - Guaranteed / U - Unsecured)");
             string educationType = Console.ReadLine();
             Console.Clear();
 
             if (fullName != null && GroupNoCondition(no))
             {
-                if (educationType.ToLower().Trim() == "guaranteed")
+                if (educationType.ToLower().Trim() == "guaranteed" || educationType.ToLower().Trim() == "g")
                 {
                     type = true;
                     Course.CreateStudent(fullName, no.ToUpper().Trim(), type);
                 }
-                else if (educationType.ToLower().Trim() == "unsecured")
+                else if (educationType.ToLower().Trim() == "unsecured" || educationType.ToLower().Trim() == "u")
                 {
                     type = false;
                     Course.CreateStudent(fullName, no.ToUpper().Trim(), type);
@@ -162,17 +152,16 @@ namespace Course_managment.Services
         public static void DeleteStudentMenu()
         {
             Course.ShowAllStudents();
-            Console.WriteLine();
-            
-            Console.WriteLine("Enter group no:");
+
+            Console.WriteLine("\nEnter group no:");
             string no = Console.ReadLine();
 
             ushort id;
             Console.WriteLine("\nEnter student ID:");
-            bool remainedResult = ushort.TryParse(Console.ReadLine(), out id);
+            bool result = ushort.TryParse(Console.ReadLine(), out id);
             Console.Clear();
 
-            if (remainedResult)
+            if (result)
             {
                 Course.DeleteStudent(no, id);
             }
@@ -233,6 +222,24 @@ namespace Course_managment.Services
             {
                 return false;
             }
+            return true;
+        }
+
+        public static bool NameCondition(string name)
+        {
+            if (string.IsNullOrEmpty(name) || string.IsNullOrWhiteSpace(name))
+            {
+                return false;
+            }
+
+            foreach (char item in name)
+            {
+                if (!char.IsLetter(item))
+                {
+                    return false;
+                }
+            }
+
             return true;
         }
     }

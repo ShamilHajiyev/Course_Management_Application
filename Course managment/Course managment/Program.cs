@@ -1,5 +1,4 @@
 ﻿using Course_managment.Enums;
-using Course_managment.Models;
 using Course_managment.Services;
 using System;
 

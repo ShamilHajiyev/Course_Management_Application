@@ -1,8 +1,6 @@
 ﻿using Course_managment.Enums;
 using Course_managment.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Course_managment.Interfaces
 {

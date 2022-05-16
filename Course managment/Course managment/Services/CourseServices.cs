@@ -3,7 +3,6 @@ using Course_managment.Interfaces;
 using Course_managment.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Course_managment.Services
 {
@@ -39,9 +38,16 @@ namespace Course_managment.Services
 
         public void ShowAllGroups()
         {
-            foreach (Group group in _groups)
+            if (_groups.Count == 0)
             {
-                Console.WriteLine(group.ToString());
+                Console.WriteLine("There is no group here yet");
+            }
+            else
+            {
+                foreach (Group group in _groups)
+                {
+                    Console.WriteLine(group.ToString());
+                }
             }
         }
 
@@ -86,7 +92,10 @@ namespace Course_managment.Services
         {
             foreach (Group group in _groups)
             {
-                ShowStudentsInGroup(group.No);
+                foreach (Student student in group.Students)
+                {
+                    Console.WriteLine(student.ToString());
+                }
             }
         }
 
